@@ -1,110 +1,223 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Ambient Sound Player</title>
+<title>Ambient Sound Mixer</title>
+
 <style>
 
 body{
-background:#0b1220;
+background:#0f172a;
 font-family:Arial;
 color:white;
 text-align:center;
+margin:0;
 }
 
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:30px;
-}
-
-.card{
-background:#1a2238;
-border-radius:15px;
-overflow:hidden;
-cursor:pointer;
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.05);
-}
-
-.card img{
-width:100%;
-height:150px;
-object-fit:cover;
-}
-
-.card h3{
-margin:10px;
-}
-
-</style>
-</head>
-
-<body>
-  <style>
-body{
-font-family: Arial;
-background:#0f172a;
-color:white;
-text-align:center;
+h1{
+padding:20px;
 }
 
 .sound-container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:30px;
 }
 
 .sound-card{
 background:#1e293b;
-padding:20px;
+border-radius:15px;
+padding:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.sound-card:hover{
+transform:scale(1.05);
+}
+
+.sound-card img{
+width:100%;
+height:150px;
+object-fit:cover;
 border-radius:10px;
-width:200px;
-box-shadow:0 4px 10px rgba(0,0,0,0.5);
 }
 
-button{
-padding:10px 15px;
-border:none;
-border-radius:6px;
-background:#38bdf8;
-color:white;
-cursor:pointer;
+.sound-card p{
+margin:10px 0;
+font-weight:bold;
 }
 
-button:hover{
-background:#0ea5e9;
+audio{
+width:100%;
 }
+
 </style>
 
-<h2>Ambient Sound Player</h2>
+</head>
 
-<button onclick="playSound('dragon-studio-relaxing-rain-444802.mp3')">Rain</button>
+<body>
 
-<button onclick="playSound('freesound_community-ambient-pub-6696.mp3')">Pub</button>
+<h1>Ambient Sound Mixer</h1>
 
-<button onclick="playSound('freesound_community-rain-and-thunder-1670.mp3')">Thunder</button>
+<div class="sound-container">
 
-<button onclick="playSound('dragon-studio-dark-horror-ambient-05.mp3')">Horror</button>
-<button onclick="playSound('black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3')">bell</button>
-<button onclick="playSound('dragon-studio-ambient-pads-loop-01-427398.mp3')">pads</button>
-<button onclick="playSound('dragon-studio-copyright-free-rain-sounds-331497.mp3')">rain</button>
-<button onclick="playSound('freesound_community-some-ambient-64910.mp3')">some</button>
-<button onclick="playSound('idoberg-ambient-pads-loop-296968.mp3')">loop</button>
-<button onclick="playSound('mfcc-ambient-ambient-music-479762.mp3')">music</button>
-<button onclick="playSound('samuelfjohanns-uplifting-pad-texture-113842.mp3')">texture</button>
-<button onclick="playSound('soul_serenity_sounds-ambient-noise-236388.mp3')">noise</button>
-<button onclick="playSound('soundreality-ambient-forest-campfire-meditation-452486.mp3')">meditation</button>
-<button onclick="playSound('soundreality-ambient-old-house-496466.mp3')">old</button>
-<button onclick="playSound('soundreality-ambient-spring-forest-323801.mp3')">forest</button>
-<button onclick="playSound('soundreality-ambient-wandering-wind-321158.mp3')">wind</button>
-<button onclick="playSound('soundreality-cinematic-ambient-pad-485511.mp3')">ambient</button>
-<button onclick="playSound('universfield-relaxing-rain-and-thunder-ambience-351014.mp3')">thunder</button>
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+<p>Rain</p>
+<audio controls>
+<source src="black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+<p>Forest</p>
+<audio controls>
+<source src="dragon-studio-ambient-pads-loop-01-427398.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<p>Ocean</p>
+<audio controls>
+<source src="dragon-studio-ambient-pads-loop-04-427396.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<p>Wind</p>
+<audio controls>
+<source src="dragon-studio-copyright-free-rain-sounds-331497.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94">
+<p>Thunder</p>
+<audio controls>
+<source src="dragon-studio-dark-horror-ambient-05-425468.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<p>Nature</p>
+<audio controls>
+<source src="dragon-studio-relaxing-rain-444802.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<p>Night</p>
+<audio controls>
+<source src="freesound_community-ambient-pub-6696.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+<p>Focus</p>
+<audio controls>
+<source src="freesound_community-rain-and-thunder-16705.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<p>Space</p>
+<audio controls>
+<source src="freesound_community-some-ambient-64910.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+<p>Birds</p>
+<audio controls>
+<source src="idoberg-ambient-pads-loop-296968.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<p>River</p>
+<audio controls>
+<source src="mfcc-ambient-ambient-music-479762.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+<p>Morning</p>
+<audio controls>
+<source src="samuelfjohanns-uplifting-pad-texture-113842.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<p>Dream</p>
+<audio controls>
+<source src="soul_serenity_sounds-ambient-noise-236388.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
+<p>Zen</p>
+<audio controls>
+<source src="soundreality-ambient-forest-campfire-meditation-452486.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<p>Relax</p>
+<audio controls>
+<source src="soundreality-ambient-old-house-496466.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<p>Peace</p>
+<audio controls>
+<source src="soundreality-ambient-spring-forest-323801.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<p>Water</p>
+<audio controls>
+<source src="soundreality-ambient-wandering-wind-321158.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<p>Universe</p>
+<audio controls>
+<source src="soundreality-cinematic-ambient-pad-485511.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<p>Universe</p>
+<audio controls>
+<source src="universfield-relaxing-rain-and-thunder-ambience-351014.mp3" type="audio/mpeg">
+
+</audio>
+</div>
+</div>
+
+
 
 <br><br>
 
