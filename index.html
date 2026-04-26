@@ -15,6 +15,7 @@ text-align:center;
 background:linear-gradient(270deg,#020617,#0f172a,#1e293b);
 background-size:600% 600%;
 animation:bgMove 15s ease infinite;
+overflow-x:hidden;
 }
 
 @keyframes bgMove{
@@ -24,34 +25,9 @@ animation:bgMove 15s ease infinite;
 }
 
 h1{
-padding:20px;
+padding:25px;
 font-size:40px;
-}
-
-.controls{
-margin:20px;
-}
-
-button{
-background:#22c55e;
-border:none;
-padding:10px 20px;
-margin:5px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#16a34a;
-}
-
-.search{
-padding:10px;
-width:250px;
-border-radius:8px;
-border:none;
-margin-bottom:20px;
+text-shadow:0 0 10px black;
 }
 
 .sound-container{
@@ -62,11 +38,10 @@ padding:30px;
 }
 
 .sound-card{
-
 background:rgba(30,41,59,0.9);
 border-radius:15px;
 padding:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
 transition:0.3s;
 }
 
@@ -88,23 +63,47 @@ font-weight:bold;
 font-size:18px;
 }
 
+.playbtn{
+background:#22c55e;
+border:none;
+padding:8px 15px;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:8px;
+}
+
+.playbtn:hover{
+background:#16a34a;
+}
+
 .volume{
 width:100%;
 }
 
-.playbtn{
-background:#3b82f6;
-margin-top:5px;
-}
-
-.playbtn:hover{
-background:#2563eb;
-}
-
 .nowplaying{
+display:none;
 color:#22c55e;
 font-size:14px;
-display:none;
+}
+
+/* Falling Leaves */
+
+.leaf{
+position:fixed;
+top:-50px;
+font-size:24px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(100vh) rotate(360deg);
+opacity:0;
+}
 }
 
 </style>
@@ -113,132 +112,80 @@ display:none;
 
 <body>
 
-<h1>🎧 Ambient Sound Mixer</h1>
+<h1>🌿 Ambient Sound Mixer</h1>
 
-<input class="search" placeholder="Search sound..." onkeyup="searchSound()">
-
-<div class="controls">
-
-<button onclick="playAll()">Play All</button>
-<button onclick="stopAll()">Stop All</button>
-
-</div>
-
-<div class="sound-container" id="container">
+<div class="sound-container">
 
 <!-- Rain -->
 
 <div class="sound-card">
-
 <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-
 <p>Rain</p>
-
 <span class="nowplaying">Now Playing</span>
-
-<audio loop>
-
+<audio>
 <source src="black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3" type="audio/mpeg">
-
 </audio>
-
 <button class="playbtn">Play</button>
-
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
-
 </div>
 
 <!-- Forest -->
 
 <div class="sound-card">
-
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-
 <p>Forest</p>
-
 <span class="nowplaying">Now Playing</span>
-
-<audio loop>
-
+<audio>
 <source src="dragon-studio-ambient-pads-loop-01-427398.mp3" type="audio/mpeg">
-
 </audio>
-
 <button class="playbtn">Play</button>
-
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
-
 </div>
 
 <!-- Ocean -->
 
 <div class="sound-card">
-
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-
 <p>Ocean</p>
-
 <span class="nowplaying">Now Playing</span>
-
-<audio loop>
-
+<audio>
 <source src="dragon-studio-ambient-pads-loop-04-427396.mp3" type="audio/mpeg">
-
 </audio>
-
 <button class="playbtn">Play</button>
-
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
-
 </div>
 
 <!-- Wind -->
 
 <div class="sound-card">
-
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
 <p>Wind</p>
-
 <span class="nowplaying">Now Playing</span>
-
-<audio loop>
-
+<audio>
 <source src="dragon-studio-copyright-free-rain-sounds-331497.mp3" type="audio/mpeg">
-
 </audio>
-
 <button class="playbtn">Play</button>
-
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
-
 </div>
 
 <!-- Thunder -->
 
 <div class="sound-card">
-
 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94">
-
 <p>Thunder</p>
-
 <span class="nowplaying">Now Playing</span>
-
-<audio loop>
-
+<audio>
 <source src="dragon-studio-dark-horror-ambient-05-425468.mp3" type="audio/mpeg">
-
 </audio>
-
 <button class="playbtn">Play</button>
-
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
-
 </div>
 
 </div>
 
 <script>
+
+/* Only one sound plays */
 
 const cards=document.querySelectorAll(".sound-card")
 
@@ -253,58 +200,58 @@ audio.volume=slider.value
 
 btn.onclick=()=>{
 
-if(audio.paused){
+document.querySelectorAll("audio").forEach(a=>{
+a.pause()
+a.currentTime=0
+})
+
+document.querySelectorAll(".playbtn").forEach(b=>{
+b.innerText="Play"
+})
+
+document.querySelectorAll(".nowplaying").forEach(n=>{
+n.style.display="none"
+})
 
 audio.play()
 btn.innerText="Pause"
 now.style.display="block"
 
-}else{
-
-audio.pause()
-btn.innerText="Play"
-now.style.display="none"
-
-}
-
 }
 
 slider.oninput=()=>{
-
 audio.volume=slider.value
-
 }
 
 })
 
-function playAll(){
+/* Falling Leaves */
 
-document.querySelectorAll("audio").forEach(a=>a.play())
+function createLeaf(){
 
-}
+let leaf=document.createElement("div")
 
-function stopAll(){
+leaf.classList.add("leaf")
 
-document.querySelectorAll("audio").forEach(a=>a.pause())
+leaf.innerHTML="🍃"
 
-}
+leaf.style.left=Math.random()*100+"vw"
 
-function searchSound(){
+leaf.style.animationDuration=(Math.random()*5+5)+"s"
 
-let input=document.querySelector(".search").value.toLowerCase()
+document.body.appendChild(leaf)
 
-document.querySelectorAll(".sound-card").forEach(card=>{
+setTimeout(()=>{
 
-let text=card.querySelector("p").innerText.toLowerCase()
+leaf.remove()
 
-card.style.display=text.includes(input)?"block":"none"
-
-})
+},10000)
 
 }
+
+setInterval(createLeaf,500)
 
 </script>
 
 </body>
-
 </html>
