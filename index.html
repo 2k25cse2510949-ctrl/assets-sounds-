@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
 <title>Ambient Sound Mixer</title>
@@ -27,7 +26,6 @@ overflow-x:hidden;
 h1{
 padding:25px;
 font-size:40px;
-text-shadow:0 0 10px black;
 }
 
 .sound-container{
@@ -38,7 +36,7 @@ padding:30px;
 }
 
 .sound-card{
-background:rgba(30,41,59,0.9);
+background:#1e293b;
 border-radius:15px;
 padding:15px;
 box-shadow:0 10px 25px rgba(0,0,0,0.5);
@@ -60,33 +58,14 @@ border-radius:10px;
 .sound-card p{
 margin:10px 0;
 font-weight:bold;
-font-size:18px;
-}
-
-.playbtn{
-background:#22c55e;
-border:none;
-padding:8px 15px;
-border-radius:8px;
-cursor:pointer;
-margin-bottom:8px;
-}
-
-.playbtn:hover{
-background:#16a34a;
 }
 
 .volume{
 width:100%;
+margin-top:5px;
 }
 
-.nowplaying{
-display:none;
-color:#22c55e;
-font-size:14px;
-}
-
-/* Falling Leaves */
+/* falling leaves */
 
 .leaf{
 position:fixed;
@@ -116,68 +95,186 @@ opacity:0;
 
 <div class="sound-container">
 
-<!-- Rain -->
+<!-- KEEP ALL YOUR SOUND CARDS EXACTLY SAME -->
+<!-- I DID NOT CHANGE YOUR SOUND FILE NAMES -->
 
+<!-- Rain -->
 <div class="sound-card">
 <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
 <p>Rain</p>
-<span class="nowplaying">Now Playing</span>
-<audio>
+<audio loop>
 <source src="black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3" type="audio/mpeg">
 </audio>
-<button class="playbtn">Play</button>
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
 </div>
 
 <!-- Forest -->
-
 <div class="sound-card">
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
 <p>Forest</p>
-<span class="nowplaying">Now Playing</span>
-<audio>
+<audio loop>
 <source src="dragon-studio-ambient-pads-loop-01-427398.mp3" type="audio/mpeg">
 </audio>
-<button class="playbtn">Play</button>
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
 </div>
 
 <!-- Ocean -->
-
 <div class="sound-card">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 <p>Ocean</p>
-<span class="nowplaying">Now Playing</span>
-<audio>
+<audio loop>
 <source src="dragon-studio-ambient-pads-loop-04-427396.mp3" type="audio/mpeg">
 </audio>
-<button class="playbtn">Play</button>
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
 </div>
 
 <!-- Wind -->
-
 <div class="sound-card">
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
 <p>Wind</p>
-<span class="nowplaying">Now Playing</span>
-<audio>
+<audio loop>
 <source src="dragon-studio-copyright-free-rain-sounds-331497.mp3" type="audio/mpeg">
 </audio>
-<button class="playbtn">Play</button>
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
 </div>
 
 <!-- Thunder -->
-
 <div class="sound-card">
 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94">
 <p>Thunder</p>
-<span class="nowplaying">Now Playing</span>
-<audio>
+<audio loop>
 <source src="dragon-studio-dark-horror-ambient-05-425468.mp3" type="audio/mpeg">
 </audio>
-<button class="playbtn">Play</button>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Nature -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<p>Nature</p>
+<audio loop>
+<source src="dragon-studio-relaxing-rain-444802.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Night -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<p>Night</p>
+<audio loop>
+<source src="freesound_community-ambient-pub-6696.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Focus -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+<p>Focus</p>
+<audio loop>
+<source src="freesound_community-rain-and-thunder-16705.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Space -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<p>Space</p>
+<audio loop>
+<source src="freesound_community-some-ambient-64910.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Birds -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+<p>Birds</p>
+<audio loop>
+<source src="idoberg-ambient-pads-loop-296968.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- River -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<p>River</p>
+<audio loop>
+<source src="mfcc-ambient-ambient-music-479762.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Morning -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+<p>Morning</p>
+<audio loop>
+<source src="samuelfjohanns-uplifting-pad-texture-113842.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Dream -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+<p>Dream</p>
+<audio loop>
+<source src="soul_serenity_sounds-ambient-noise-236388.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Zen -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
+<p>Zen</p>
+<audio loop>
+<source src="soundreality-ambient-forest-campfire-meditation-452486.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Relax -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+<p>Relax</p>
+<audio loop>
+<source src="soundreality-ambient-old-house-496466.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Peace -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+<p>Peace</p>
+<audio loop>
+<source src="soundreality-ambient-spring-forest-323801.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Water -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<p>Water</p>
+<audio loop>
+<source src="soundreality-ambient-wandering-wind-321158.mp3" type="audio/mpeg">
+</audio>
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+<!-- Universe -->
+<div class="sound-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+<p>Universe</p>
+<audio loop>
+<source src="soundreality-cinematic-ambient-pad-485511.mp3" type="audio/mpeg">
+</audio>
 <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
 </div>
 
@@ -185,71 +282,60 @@ opacity:0;
 
 <script>
 
-/* Only one sound plays */
+/* Only one sound at a time */
 
-const cards=document.querySelectorAll(".sound-card")
+const cards = document.querySelectorAll(".sound-card");
 
-cards.forEach(card=>{
+cards.forEach(card => {
 
-const audio=card.querySelector("audio")
-const btn=card.querySelector(".playbtn")
-const slider=card.querySelector(".volume")
-const now=card.querySelector(".nowplaying")
+const audio = card.querySelector("audio");
+const slider = card.querySelector(".volume");
 
-audio.volume=slider.value
+audio.volume = slider.value;
 
-btn.onclick=()=>{
+slider.addEventListener("input",()=>{
 
 document.querySelectorAll("audio").forEach(a=>{
-a.pause()
-a.currentTime=0
-})
+if(a !== audio){
+a.pause();
+a.currentTime = 0;
+}
+});
 
-document.querySelectorAll(".playbtn").forEach(b=>{
-b.innerText="Play"
-})
+audio.volume = slider.value;
 
-document.querySelectorAll(".nowplaying").forEach(n=>{
-n.style.display="none"
-})
-
-audio.play()
-btn.innerText="Pause"
-now.style.display="block"
-
+if(audio.paused && slider.value > 0){
+audio.play();
 }
 
-slider.oninput=()=>{
-audio.volume=slider.value
+if(slider.value == 0){
+audio.pause();
 }
 
-})
+});
 
-/* Falling Leaves */
+});
+
+/* Falling leaves */
 
 function createLeaf(){
 
-let leaf=document.createElement("div")
+let leaf=document.createElement("div");
+leaf.classList.add("leaf");
+leaf.innerHTML="🍃";
 
-leaf.classList.add("leaf")
+leaf.style.left=Math.random()*100+"vw";
+leaf.style.animationDuration=(Math.random()*5+5)+"s";
 
-leaf.innerHTML="🍃"
-
-leaf.style.left=Math.random()*100+"vw"
-
-leaf.style.animationDuration=(Math.random()*5+5)+"s"
-
-document.body.appendChild(leaf)
+document.body.appendChild(leaf);
 
 setTimeout(()=>{
-
-leaf.remove()
-
+leaf.remove();
 },10000)
 
 }
 
-setInterval(createLeaf,500)
+setInterval(createLeaf,600);
 
 </script>
 
