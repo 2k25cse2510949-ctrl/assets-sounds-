@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Ambient Sound Mixer</title>
@@ -7,15 +8,50 @@
 <style>
 
 body{
-background:#0f172a;
+margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
-margin:0;
+background:linear-gradient(270deg,#020617,#0f172a,#1e293b);
+background-size:600% 600%;
+animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 h1{
-padding:25px;
+padding:20px;
+font-size:40px;
+}
+
+.controls{
+margin:20px;
+}
+
+button{
+background:#22c55e;
+border:none;
+padding:10px 20px;
+margin:5px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.search{
+padding:10px;
+width:250px;
+border-radius:8px;
+border:none;
+margin-bottom:20px;
 }
 
 .sound-container{
@@ -26,15 +62,17 @@ padding:30px;
 }
 
 .sound-card{
-background:#1e293b;
+
+background:rgba(30,41,59,0.9);
 border-radius:15px;
 padding:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
 transition:0.3s;
 }
 
 .sound-card:hover{
-transform:scale(1.05);
+transform:scale(1.07);
+box-shadow:0 0 20px #22c55e;
 }
 
 .sound-card img{
@@ -47,10 +85,26 @@ border-radius:10px;
 .sound-card p{
 margin:10px 0;
 font-weight:bold;
+font-size:18px;
 }
 
-audio{
+.volume{
 width:100%;
+}
+
+.playbtn{
+background:#3b82f6;
+margin-top:5px;
+}
+
+.playbtn:hover{
+background:#2563eb;
+}
+
+.nowplaying{
+color:#22c55e;
+font-size:14px;
+display:none;
 }
 
 </style>
@@ -59,164 +113,198 @@ width:100%;
 
 <body>
 
-<h1>Ambient Sound Mixer</h1>
+<h1>🎧 Ambient Sound Mixer</h1>
 
-<div class="sound-container">
+<input class="search" placeholder="Search sound..." onkeyup="searchSound()">
+
+<div class="controls">
+
+<button onclick="playAll()">Play All</button>
+<button onclick="stopAll()">Stop All</button>
+
+</div>
+
+<div class="sound-container" id="container">
+
+<!-- Rain -->
 
 <div class="sound-card">
+
 <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
+
 <p>Rain</p>
-<audio controls>
+
+<span class="nowplaying">Now Playing</span>
+
+<audio loop>
+
 <source src="black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3" type="audio/mpeg">
+
 </audio>
+
+<button class="playbtn">Play</button>
+
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+
 </div>
 
+<!-- Forest -->
+
 <div class="sound-card">
+
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+
 <p>Forest</p>
-<audio controls>
+
+<span class="nowplaying">Now Playing</span>
+
+<audio loop>
+
 <source src="dragon-studio-ambient-pads-loop-01-427398.mp3" type="audio/mpeg">
+
 </audio>
+
+<button class="playbtn">Play</button>
+
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+
 </div>
 
+<!-- Ocean -->
+
 <div class="sound-card">
+
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+
 <p>Ocean</p>
-<audio controls>
+
+<span class="nowplaying">Now Playing</span>
+
+<audio loop>
+
 <source src="dragon-studio-ambient-pads-loop-04-427396.mp3" type="audio/mpeg">
+
 </audio>
+
+<button class="playbtn">Play</button>
+
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+
 </div>
 
+<!-- Wind -->
+
 <div class="sound-card">
+
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
 <p>Wind</p>
-<audio controls>
+
+<span class="nowplaying">Now Playing</span>
+
+<audio loop>
+
 <source src="dragon-studio-copyright-free-rain-sounds-331497.mp3" type="audio/mpeg">
+
 </audio>
+
+<button class="playbtn">Play</button>
+
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+
 </div>
 
+<!-- Thunder -->
+
 <div class="sound-card">
+
 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94">
+
 <p>Thunder</p>
-<audio controls>
+
+<span class="nowplaying">Now Playing</span>
+
+<audio loop>
+
 <source src="dragon-studio-dark-horror-ambient-05-425468.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-<p>Nature</p>
-<audio controls>
-<source src="dragon-studio-relaxing-rain-444802.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
-<p>Night</p>
-<audio controls>
-<source src="freesound_community-ambient-pub-6696.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
-<p>Focus</p>
-<audio controls>
-<source src="freesound_community-rain-and-thunder-16705.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-<p>Space</p>
-<audio controls>
-<source src="freesound_community-some-ambient-64910.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
-<p>Birds</p>
-<audio controls>
-<source src="idoberg-ambient-pads-loop-296968.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-<p>River</p>
-<audio controls>
-<source src="mfcc-ambient-ambient-music-479762.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
-<p>Morning</p>
-<audio controls>
-<source src="samuelfjohanns-uplifting-pad-texture-113842.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<p>Dream</p>
-<audio controls>
-<source src="soul_serenity_sounds-ambient-noise-236388.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
-<p>Zen</p>
-<audio controls>
-<source src="soundreality-ambient-forest-campfire-meditation-452486.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
-<p>Relax</p>
-<audio controls>
-<source src="soundreality-ambient-old-house-496466.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
-<p>Peace</p>
-<audio controls>
-<source src="soundreality-ambient-spring-forest-323801.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<p>Water</p>
-<audio controls>
-<source src="soundreality-ambient-wandering-wind-321158.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-<p>Universe</p>
-<audio controls>
-<source src="soundreality-cinematic-ambient-pad-485511.mp3" type="audio/mpeg">
-</audio>
-</div>
-
-<div class="sound-card">
-<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-<p>Universe</p>
-<audio controls>
-<source src="universfield-relaxing-rain-and-thunder-ambience-351014.mp3" type="audio/mpeg">
 
 </audio>
+
+<button class="playbtn">Play</button>
+
+<input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+
 </div>
+
 </div>
+
+<script>
+
+const cards=document.querySelectorAll(".sound-card")
+
+cards.forEach(card=>{
+
+const audio=card.querySelector("audio")
+const btn=card.querySelector(".playbtn")
+const slider=card.querySelector(".volume")
+const now=card.querySelector(".nowplaying")
+
+audio.volume=slider.value
+
+btn.onclick=()=>{
+
+if(audio.paused){
+
+audio.play()
+btn.innerText="Pause"
+now.style.display="block"
+
+}else{
+
+audio.pause()
+btn.innerText="Play"
+now.style.display="none"
+
+}
+
+}
+
+slider.oninput=()=>{
+
+audio.volume=slider.value
+
+}
+
+})
+
+function playAll(){
+
+document.querySelectorAll("audio").forEach(a=>a.play())
+
+}
+
+function stopAll(){
+
+document.querySelectorAll("audio").forEach(a=>a.pause())
+
+}
+
+function searchSound(){
+
+let input=document.querySelector(".search").value.toLowerCase()
+
+document.querySelectorAll(".sound-card").forEach(card=>{
+
+let text=card.querySelector("p").innerText.toLowerCase()
+
+card.style.display=text.includes(input)?"block":"none"
+
+})
+
+}
+
+</script>
+
 </body>
+
 </html>
-
-
