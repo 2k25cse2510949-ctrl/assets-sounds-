@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ambient Sound Player</title>
+</head>
+
+<body>
+
+<h2>Ambient Sound Player</h2>
+
+<button onclick="playSound('dragon-studio-relaxing-rain-444802.mp3')">Rain</button>
+
+<button onclick="playSound('freesound_community-ambient-pub-6696.mp3')">Pub</button>
+
+<button onclick="playSound('freesound_community-rain-and-thunder-1670.mp3')">Thunder</button>
+
+<button onclick="playSound('dragon-studio-dark-horror-ambient-05.mp3')">Horror</button>
+<button onclick="playSound('black_kumuzhi-lofi-ambient-bell-atmosphere-521324.mp3')">bell</button>
+<button onclick="playSound('dragon-studio-ambient-pads-loop-01-427398.mp3')">pads</button>
+<button onclick="playSound('dragon-studio-copyright-free-rain-sounds-331497.mp3')">rain</button>
+<button onclick="playSound('freesound_community-some-ambient-64910.mp3')">some</button>
+<button onclick="playSound('idoberg-ambient-pads-loop-296968.mp3')">loop</button>
+<button onclick="playSound('mfcc-ambient-ambient-music-479762.mp3')">music</button>
+<button onclick="playSound('samuelfjohanns-uplifting-pad-texture-113842.mp3')">texture</button>
+<button onclick="playSound('soul_serenity_sounds-ambient-noise-236388.mp3')">noise</button>
+<button onclick="playSound('soundreality-ambient-forest-campfire-meditation-452486.mp3')">meditation</button>
+<button onclick="playSound('soundreality-ambient-old-house-496466.mp3')">old</button>
+<button onclick="playSound('soundreality-ambient-spring-forest-323801.mp3')">forest</button>
+<button onclick="playSound('soundreality-ambient-wandering-wind-321158.mp3')">wind</button>
+<button onclick="playSound('soundreality-cinematic-ambient-pad-485511.mp3')">ambient</button>
+<button onclick="playSound('universfield-relaxing-rain-and-thunder-ambience-351014.mp3')">thunder</button>
+
+<br><br>
+
+<audio id="player" controls></audio>
+
+<script>
+
+function playSound(sound){
+let audio = document.getElementById("player");
+audio.src = sound;
+audio.play();
+}
+
+</script>
+
+</body>
+</html>
